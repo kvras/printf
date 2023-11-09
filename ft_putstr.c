@@ -1,10 +1,22 @@
-#include "ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: miguiji <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/09 17:30:21 by miguiji           #+#    #+#             */
+/*   Updated: 2023/11/09 17:30:23 by miguiji          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	ft_putstr(char *string)
+#include "libftprintf.h"
+
+void	ft_putstr(char *string, int *i)
 {
 	while(*string)
 	{
-		write(1,string,1);
+		ft_putchar(*string,i);
 		string++;
 	}
 }

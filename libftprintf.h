@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miguiji <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 17:29:20 by miguiji           #+#    #+#             */
-/*   Updated: 2023/11/09 17:29:59 by miguiji          ###   ########.fr       */
+/*   Created: 2023/11/09 17:27:58 by miguiji           #+#    #+#             */
+/*   Updated: 2023/11/09 17:28:37 by miguiji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
-void	ft_puthex(long long nbr, char format, int *i)
-{
-	char	*hex;
-	if (format == 'X')
-		hex ="0123456789ABCDEF";
-	else
-		hex ="0123456789abcdef";
-	if(nbr / 16 > 0)
-		ft_puthex(nbr / 16,format,i);
-	ft_putchar(hex[nbr%16],i);
-}
+#include <unistd.h>
+#include <stdarg.h>
+
+void    ft_putadresse(long long nbr, int *i);
+void	ft_putunsigned(unsigned int nbr, int *len);
+void	ft_puthex(long long nbr, char format, int *len);
+void	ft_putchar(char c, int *len);
+void	ft_putstr(char *string, int *len);
+void	ft_putnbr(int nb,int *len);
+int	    ft_printf(char *format,...);
+#endif
