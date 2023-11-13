@@ -12,11 +12,18 @@
 
 #include "libftprintf.h"
 
-void	ft_putstr(char *string, int *i)
+void	ft_putstr(char *string, int *len, int *erreur)
 {
+	if (string == NULL)
+	{
+		*len += write(1, "(null)", 6);
+		return ;
+	}
 	while(*string)
 	{
-		ft_putchar(*string,i);
+		if (*erreur == -1)
+			return ;
+		ft_putchar(*string,len, erreur);
 		string++;
 	}
 }

@@ -12,23 +12,27 @@
 
 #include "libftprintf.h"
 
-void	ft_putnbr(int nb, int *i)
+void	ft_putnbr(int nb, int *len, int *erreur)
 {
 	if (nb == -2147483648)
-		ft_putstr("-2147483648", i);
+		ft_putstr("-2147483648", len, erreur);
 	else
 	{
 		if (nb < 0)
 		{
 			nb = -nb;
-			ft_putchar('-', i);
+			ft_putchar('-', len, erreur);
 		}
 		if (nb >= 10)
 		{
-			ft_putnbr(nb / 10, i);
-			ft_putnbr(nb % 10, i);
+			ft_putnbr(nb / 10, len, erreur);
+			ft_putnbr(nb % 10, len, erreur);
 		}
 		else
-			ft_putchar(nb + 48, i);
+		{
+			if (*erreur == -1)
+				return ;
+			ft_putchar(nb + 48, len, erreur);
+		}
 	}
 }

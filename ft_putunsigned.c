@@ -12,13 +12,17 @@
 
 #include "libftprintf.h"
 
-void	ft_putunsigned(unsigned int nbr, int *len)
+void	ft_putunsigned(unsigned int nbr, int *len, int *erreur)
 {
 	if(nbr > 9)
 	{
-		ft_putunsigned(nbr / 10, len);
-		ft_putunsigned(nbr % 10, len);
+		ft_putunsigned(nbr / 10, len, erreur);
+		ft_putunsigned(nbr % 10, len, erreur);
 	}
 	else
-		ft_putchar(nbr + 48, len);
+	{
+		if (*erreur == -1)
+			return ;
+		ft_putchar(nbr + 48, len, erreur);
+	}
 }

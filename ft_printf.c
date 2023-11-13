@@ -12,40 +12,45 @@
 
 #include "libftprintf.h"
 
-void	check_format(char *format, va_list list, int *len)
+void	check_format(char *format, va_list list, int *len, int *erreur)
 {
 	if(*(format + 1) == 'c')
-		ft_putchar(va_arg(list,int), len);
-	else if(*(format + 1) == 'd')
-		ft_putnbr(va_arg(list,int), len);
+		ft_putchar(va_arg(list,int), len, erreur);
+	else if(*(format + 1) == 'd' || *(format + 1) == 'i')
+		ft_putnbr(va_arg(list,int), len, erreur);
 	else if(*(format + 1) == 's')
-		ft_putstr(va_arg(list,char *), len);
+		ft_putstr(va_arg(list,char *), len, erreur);
 	else if(*(format + 1) == 'p')
-		ft_putadresse(va_arg(list, long long), len);
+		ft_putadresse(va_arg(list, void *), len, erreur);
 	else if(*(format + 1) == 'X' || *(format + 1) == 'x')
-		ft_puthex(va_arg(list,int),*(format + 1), len);
+		ft_puthex_unsigned(va_arg(list,unsigned int),*(format + 1), len, erreur);
 	else if(*(format + 1) == 'u')
-		ft_putunsigned(va_arg(list, unsigned int), len);
+		ft_putunsigned(va_arg(list, unsigned int), len, erreur);
 	else if(*(format + 1) == '%')
-		ft_putchar('%', len);
+		ft_putchar('%', len, erreur);
 }
 int	ft_printf(char *format,...)
 {
 	int i = 0;
 	int len = 0;
-	va_list list;
-	va_start(list,format);
-	while(format[i])
+	int erreur = 0;
+
+	va_list	list;
+
+	va_start(list, format);
+	while (format[i])
 	{
-		if(format[i] == '%')
+		if (format[i] == '%')
 		{
-			check_format(&format[i],list,&len);
+			check_format(&format[i], list, &len, &erreur);
 			i++;
 		}
 		else
-			ft_putchar(format[i],&len);
+			ft_putchar(format[i], &len, &erreur);
+		if (erreur == -1)
+			return -1;
 		i++;
 	}
 	va_end(list);
-	return len;
+	return (len);
 }
