@@ -19,7 +19,7 @@ void	ft_putstr(char *string, int *len, int *erreur)
 		*len += write(1, "(null)", 6);
 		return ;
 	}
-	while(*string)
+	while (*string)
 	{
 		if (*erreur == -1)
 			return ;

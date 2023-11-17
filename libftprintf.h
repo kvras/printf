@@ -20,7 +20,7 @@ void    ft_putadresse(void * ptr, int *len, int *erreur);
 void	ft_putunsigned(unsigned int nbr, int *len, int *erreur);
 void	ft_putchar(char c, int *len, int *erreur);
 void	ft_putstr(char *string, int *len, int *erreur);
-void	ft_putnbr(int nb,int *len, int *erreur);
-int	    ft_printf(char *format,...);
+void	ft_putnbr(int nb, int *len, int *erreur);
+int     ft_printf(char *format, ...);
 void	ft_puthex_unsigned(unsigned nbr, char format, int *len, int *erreur);
 #endif

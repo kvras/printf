@@ -14,7 +14,7 @@
 
 void	ft_putunsigned(unsigned int nbr, int *len, int *erreur)
 {
-	if(nbr > 9)
+	if (nbr > 9)
 	{
 		ft_putunsigned(nbr / 10, len, erreur);
 		ft_putunsigned(nbr % 10, len, erreur);

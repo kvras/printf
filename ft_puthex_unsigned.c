@@ -20,7 +20,7 @@ void	ft_puthex_unsigned(unsigned int nbr, char format, int *len, int *erreur)
 		hex ="0123456789ABCDEF";
 	else
 		hex ="0123456789abcdef";
-	if(nbr / 16 > 0)
+	if (nbr / 16 > 0)
 		ft_puthex_unsigned(nbr / 16,format, len, erreur);
 	if (*erreur == -1)
 		return ;

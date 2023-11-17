@@ -11,9 +11,12 @@
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-
+#include <unistd.h>
+#include <stdio.h>
 void	ft_putchar(char c, int *len, int *erreur)
 {
 	*erreur = write(1, &c, 1);
+	if (*erreur == -1)
+		return ;
 	(*len)++;
 }
