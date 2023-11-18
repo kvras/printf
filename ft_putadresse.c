@@ -12,28 +12,13 @@
 
 #include "libftprintf.h"
 
-static void	ft_puthex(unsigned long nbr, int *len, int *erreur)
-{
-	char	*hex;
-
-	hex = "0123456789abcdef";
-	if (nbr / 16 > 0)
-		ft_puthex(nbr / 16, len, erreur);
-	if (*erreur == -1)
-		return ;
-	ft_putchar(hex[nbr % 16], len, erreur);
-}
-
 void	ft_putadresse(void *ptr, int *len, int *erreur)
 {
-	unsigned long	add;
-
-	add = (unsigned long)ptr;
 	ft_putchar('0', len, erreur);
 	if (*erreur == -1)
 		return ;
 	ft_putchar('x', len, erreur);
 	if (*erreur == -1)
 		return ;
-	ft_puthex(add, len, erreur);
+	ft_puthex((unsigned long long)ptr, 'x' , len, erreur);
 }

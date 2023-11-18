@@ -1,6 +1,6 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRC = ft_printf.c ft_puthex_unsigned.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_putunsigned.c ft_putadresse.c
+SRC = ft_printf.c ft_puthex.c ft_puthexx.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_putunsigned.c ft_putadresse.c
 
 OBJ =	$(SRC:.c=.o)
 
