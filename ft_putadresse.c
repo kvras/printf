@@ -20,5 +20,5 @@ void	ft_putadresse(void *ptr, int *len, int *erreur)
 	ft_putchar('x', len, erreur);
 	if (*erreur == -1)
 		return ;
-	ft_puthex((unsigned long long)ptr, 'x' , len, erreur);
+	ft_puthex((unsigned long long)ptr, 'x', len, erreur);
 }

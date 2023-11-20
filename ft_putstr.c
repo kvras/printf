@@ -23,7 +23,7 @@ void	ft_putstr(char *string, int *len, int *erreur)
 	{
 		if (*erreur == -1)
 			return ;
-		ft_putchar(*string,len, erreur);
+		ft_putchar(*string, len, erreur);
 		string++;
 	}
 }

@@ -21,7 +21,7 @@ void	ft_puthex(unsigned long long nbr, char format, int *len, int *erreur)
 	else
 		hex = "0123456789abcdef";
 	if (nbr / 16 > 0)
-		ft_puthex(nbr / 16,format, len, erreur);
+		ft_puthex(nbr / 16, format, len, erreur);
 	if (*erreur == -1)
 		return ;
 	ft_putchar(hex[nbr % 16], len, erreur);
